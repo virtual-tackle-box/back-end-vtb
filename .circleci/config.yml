@@ -1,16 +1,3 @@
-# version: 2.1
-# jobs:
-#   build:
-#     docker:
-#       - image: alpine:3.15
-#     steps:
-#       - run:
-#           name: The First Step
-#           command: |
-#             echo 'Hello World!'
-#             echo 'This is the delivery pipeline'
-
-
 version: 2.1 # use CircleCI 2.1
 orbs:
    node: circleci/node@5.0.0 # Needed for javascript runtime
@@ -30,6 +17,7 @@ jobs: # a collection of steps
         environment: # environment variables for database, it is kind of obvious but it is important that they match with your test config in database.yml
           POSTGRES_USER: postgres
           POSTGRES_DB: virtual_tackle_box_test
+          POSTGRES_HOST_AUTH_METHOD: trust
     steps: # a collection of executable commands
       - checkout # special step to check out source code to working directory
       # Which version of bundler?
