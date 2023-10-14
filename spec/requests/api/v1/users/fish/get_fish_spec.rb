@@ -31,9 +31,9 @@ RSpec.describe "Fish Index", type: :request do
       expect(fish_data[:data][0][:attributes]).to have_key(:species)
       expect(fish_data[:data][0][:attributes][:species]).to be_a(String)
       expect(fish_data[:data][0][:attributes]).to have_key(:weight)
-      expect(fish_data[:data][0][:attributes][:weight]).to be_a(float)
+      expect(fish_data[:data][0][:attributes][:weight]).to be_a(Float)
       expect(fish_data[:data][0][:attributes]).to have_key(:length)
-      expect(fish_data[:data][0][:attributes][:length]).to be_a(float)
+      expect(fish_data[:data][0][:attributes][:length]).to be_a(Float)
     end
   end
 end
