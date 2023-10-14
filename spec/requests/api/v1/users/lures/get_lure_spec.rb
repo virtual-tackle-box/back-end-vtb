@@ -14,19 +14,18 @@ RSpec.describe "Lures Index", type: :request do
       expect(response).to be_successful
       expect(response.status).to eq(200)
 
-      lure_data = [lure_1, lure_2, lure_3].map do |lure|
-        {
-          id: lure.id.to_s,
-          type: "lure",
-          attributes: {
-            brand: lure.brand,
-            variety: lure.variety,
-            color: lure.color,
-            weight: lure.weight
-          }
-        }
-      end
-
+      # lure_data = [lure_1, lure_2, lure_3].map do |lure|
+      #   {
+      #     id: lure.id.to_s,
+      #     type: "lure",
+      #     attributes: {
+      #       brand: lure.brand,
+      #       variety: lure.variety,
+      #       color: lure.color,
+      #       weight: lure.weight
+      #     }
+      #   }
+      # end
       lure_data = JSON.parse(response.body, symbolize_names: true)
       
       expect(lure_data).to be_a(Hash)

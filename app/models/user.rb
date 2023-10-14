@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   has_many :lures, dependent: :destroy
-
+  has_many :fish, dependent: :destroy
+  
   validates :email, presence: true, uniqueness: true
   validates :password_digest, presence: true
 
