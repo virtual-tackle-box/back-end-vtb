@@ -4,4 +4,16 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   "/"
+<<<<<<< Updated upstream
+=======
+
+  namespace :api do 
+    namespace :v1 do 
+      resources :users, only: [:create] do 
+        resources :lures, only: [:index, :show, :create, :update, :destroy] 
+      end
+    end
+  end
+  
+>>>>>>> Stashed changes
 end
