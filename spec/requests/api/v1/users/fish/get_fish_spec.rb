@@ -8,7 +8,7 @@ RSpec.describe "Fish Index", type: :request do
       fish_1 = user.fish.create(species: "Largemouth Bass", weight: 3.1, length: 13.4)
       fish_2 = user.fish.create(species: "Walleye", weight: 1.1, length: 12.1)
       fish_3 = user.fish.create(species: "Pike", weight: 4.5, length: 25.1)
-      require 'pry'; binding.pry
+      
       headers = { "CONTENT_TYPE" => "application/json" }
       get "/api/v1/users/#{user.id}/fish", headers: headers
 

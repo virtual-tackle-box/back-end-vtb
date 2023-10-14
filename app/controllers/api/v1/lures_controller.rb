@@ -54,7 +54,6 @@ class Api::V1::LuresController < ApplicationController
   end
 
   def record_not_found(error)
-    # require 'pry'; binding.pry
     # Extracts model name from the error message
     model_name = error.message.split(" ")[2..2].join(" ").gsub(/#/, '').singularize
   
