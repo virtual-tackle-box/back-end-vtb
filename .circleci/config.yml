@@ -4,6 +4,8 @@ orbs:
    heroku: circleci/heroku@1.0.1 # Use the Heroku orb in your config
 jobs: # a collection of steps
   build-and-test: # runs not using Workflows must have a `build` job as entry point
+    environment: # environment variables for primary container
+        HEROKU_APP_NAME: guarded-anchorage-05999
     docker: # run the steps with Docker
       - image: cimg/ruby:3.2.2 # if you're using ruby version >= 3.0, use cimg/ruby:3.x.y 
         environment: # environment variables for primary container
