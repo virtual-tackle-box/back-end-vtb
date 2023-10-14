@@ -26,7 +26,7 @@ RSpec.describe "User API", type: :request do
       expect(user_data[:data]).to have_key(:id)
       expect(user_data[:data][:id]).to eq(new_user.id.to_s)
       expect(user_data[:data]).to have_key(:type)
-      expect(user_data[:data][:type]).to eq("users")
+      expect(user_data[:data][:type]).to eq("user")
       expect(user_data[:data]).to have_key(:attributes)
       expect(user_data[:data][:attributes]).to be_a(Hash)
       expect(user_data[:data][:attributes]).to have_key(:email)
