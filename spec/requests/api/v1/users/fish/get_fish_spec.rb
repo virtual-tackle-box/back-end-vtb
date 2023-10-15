@@ -36,7 +36,7 @@ RSpec.describe "Fish Index", type: :request do
       expect(fish_data[:data][0][:attributes][:length]).to be_a(Float)
     end
 
-    it "cant get lures for a user that doesnt exist" do
+    it "cant get fish for a user that doesnt exist" do
       headers = { "CONTENT_TYPE" => "application/json" }
       get "/api/v1/users/1/fish", headers: headers
 
@@ -88,10 +88,27 @@ RSpec.describe "Fish Index", type: :request do
       expect(response.status).to eq(404)
 
       error_data = JSON.parse(response.body, symbolize_names: true)
-
+      
       expect(error_data).to be_a(Hash)
       expect(error_data).to have_key(:error)
       expect(error_data[:error]).to eq("No User with that ID could be found")
+    end
+
+    it "cant get a fish that does not exist" do
+      user = create(:user)
+      
+      headers = { "CONTENT_TYPE" => "application/json" }
+      get "/api/v1/users/#{user.id}/fish/1"
+      
+      expect(response).to_not be_successful
+      expect(response.status).to eq(404)
+
+      error_data = JSON.parse(response.body, symbolize_names: true)
+      
+      expect(error_data).to be_a(Hash)
+      expect(error_data).to have_key(:error)
+      expect(error_data[:error]).to eq("No Fish with that ID could be found")
+
     end
   end
 end
