@@ -22,6 +22,15 @@ class Api::V1::FishController < ApplicationController
     end
   end
 
+  def update
+    begin
+      @fish.update!(fish_params)
+      render json: FishSerializer.new(@fish), status: 200
+    rescue ActiveRecord::RecordInvalid => e
+      render json: { error: e.message }, status: 422
+    end
+  end
+
   private 
 
   def set_user

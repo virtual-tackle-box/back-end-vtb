@@ -1,7 +1,7 @@
 require "rails_helper"
 
 RSpec.describe "Fish", type: :request do
-  describe "POST /api/v1/users/:user_id/lures" do
+  describe "POST /api/v1/users/:user_id/fish" do
     it "can create a fish w/ valid params" do
       user = create(:user)
 
