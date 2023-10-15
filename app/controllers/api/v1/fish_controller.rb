@@ -1,5 +1,8 @@
 class Api::V1::FishController < ApplicationController
   before_action :set_user
+
+  rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
+
   def index
     render json: FishSerializer.new(@user.fish), status: 200
   end
@@ -8,5 +11,12 @@ class Api::V1::FishController < ApplicationController
 
   def set_user
     @user = User.find(params[:user_id])
+  end
+
+  def record_not_found(error)
+    # Extracts model name from the error message
+    model_name = error.message.split(" ")[2..2].join(" ").gsub(/#/, '').singularize
+  
+    render json: { error: "No #{model_name} with that ID could be found" }, status: :not_found
   end
 end
