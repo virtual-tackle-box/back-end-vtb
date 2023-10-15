@@ -32,5 +32,29 @@ RSpec.describe "Fish", type: :request do
       expect(fish_data[:data][:attributes][:weight]).to eq(new_fish.weight)
       expect(fish_data[:data][:attributes][:length]).to eq(new_fish.length)
     end
+
+    it "cant create a fish w/invalid params" do
+      user = create(:user)
+
+      fish_params = {
+        "fish": {
+          "species": "",
+          "weight": "",
+          "length": 29.1
+        }
+      }
+
+      headers = { "CONTENT_TYPE" => "application/json" } 
+      post "/api/v1/users/#{user.id}/fish", headers: headers, params: JSON.generate(fish_params)
+      
+      expect(response).to_not be_successful
+      expect(response.status).to eq(422)
+
+      error_data = JSON.parse(response.body, symbolize_names: true)
+      
+      expect(error_data).to be_a(Hash)
+      expect(error_data).to have_key(:error)
+      expect(error_data[:error]).to eq("Validation failed: Species can't be blank, Weight can't be blank")
+    end
   end
 end
