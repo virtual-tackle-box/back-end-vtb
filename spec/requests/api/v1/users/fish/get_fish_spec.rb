@@ -108,7 +108,6 @@ RSpec.describe "Fish Index", type: :request do
       expect(error_data).to be_a(Hash)
       expect(error_data).to have_key(:error)
       expect(error_data[:error]).to eq("No Fish with that ID could be found")
-
     end
   end
 end

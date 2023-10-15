@@ -12,6 +12,16 @@ class Api::V1::FishController < ApplicationController
     render json: FishSerializer.new(@fish), status: 200
   end
 
+  def create
+    @fish = @user.fish.build(fish_params)
+    begin
+      @fish.save!
+      render json: FishSerializer.new(@fish), status: 201
+    rescue ActiveRecord::RecordInvalid => e
+      render json: { error: e.message }, status: 422
+    end
+  end
+
   private 
 
   def set_user
@@ -20,6 +30,10 @@ class Api::V1::FishController < ApplicationController
 
   def set_fish
     @fish = @user.fish.find(params[:id])
+  end
+
+  def fish_params
+    params.require(:fish).permit(:species, :weight, :length)
   end
 
   def record_not_found(error)
