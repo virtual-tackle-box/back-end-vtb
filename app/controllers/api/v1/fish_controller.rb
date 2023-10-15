@@ -31,6 +31,12 @@ class Api::V1::FishController < ApplicationController
     end
   end
 
+  def destroy
+    @fish = @user.fish.find(params[:id])
+      @fish.destroy
+      render json: { message: "Fish successfully deleted" }, status: 200
+  end
+
   private 
 
   def set_user
