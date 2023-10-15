@@ -49,5 +49,34 @@ RSpec.describe "Fish Index", type: :request do
       expect(error_data).to have_key(:error)
       expect(error_data[:error]).to eq("No User with that ID could be found")
     end
+
+    it "can get a single fish for a user" do
+      user = create(:user)
+
+      fish_1 = user.fish.create(species: "Largemouth Bass", weight: 3.1, length: 13.4)
+      fish_2 = user.fish.create(species: "Walleye", weight: 1.1, length: 12.1)
+      fish_3 = user.fish.create(species: "Pike", weight: 4.5, length: 25.1)
+      
+      headers = { "CONTENT_TYPE" => "application/json" }
+      get "/api/v1/users/#{user.id}/fish/#{fish_1.id}", headers: headers
+
+      expect(response).to be_successful
+      expect(response.status).to eq(200)
+
+      fish_data = JSON.parse(response.body, symbolize_names: true)
+      
+      expect(fish_data).to be_a(Hash)
+      expect(fish_data).to have_key(:data)
+      expect(fish_data[:data]).to have_key(:id)
+      expect(fish_data[:data][:id]).to be_a(String)
+      expect(fish_data[:data]).to have_key(:type)
+      expect(fish_data[:data][:type]).to be_a(String)
+      expect(fish_data[:data]).to have_key(:attributes)
+      expect(fish_data[:data][:attributes]).to be_a(Hash)
+      expect(fish_data[:data][:attributes].keys).to eq([:species, :weight, :length])
+      expect(fish_data[:data][:attributes][:species]).to be_a(String)
+      expect(fish_data[:data][:attributes][:weight]).to be_a(Float)
+      expect(fish_data[:data][:attributes][:length]).to be_a(Float)
+    end
   end
 end

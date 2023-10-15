@@ -1,5 +1,6 @@
 class Api::V1::FishController < ApplicationController
   before_action :set_user
+  before_action :set_fish, only: [:update, :show]
 
   rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
 
@@ -7,10 +8,18 @@ class Api::V1::FishController < ApplicationController
     render json: FishSerializer.new(@user.fish), status: 200
   end
 
+  def show
+    render json: FishSerializer.new(@fish), status: 200
+  end
+
   private 
 
   def set_user
     @user = User.find(params[:user_id])
+  end
+
+  def set_fish
+    @fish = @user.fish.find(params[:id])
   end
 
   def record_not_found(error)
