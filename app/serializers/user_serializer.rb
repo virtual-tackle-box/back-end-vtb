@@ -1,7 +1,7 @@
 class UserSerializer
   include JSONAPI::Serializer
-  attributes :email, :fish, :lures
+  attributes :email, :catches, :lures
 
   has_many :lures
-  # has_many :fish
+  has_many :catches
 end
