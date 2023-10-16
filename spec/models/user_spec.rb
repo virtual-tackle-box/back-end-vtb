@@ -4,7 +4,7 @@ RSpec.describe User, type: :model do
 
   describe "relationships" do 
     it { should have_many :lures }
-    it { should have_many :fish }
+    it { should have_many :catches }
   end
 
   describe "validations" do
