@@ -1,6 +1,8 @@
 class Catch < ApplicationRecord
   belongs_to :user
 
+  has_one_attached :image
+  
   validates :species, presence: true
   validates :weight, presence: true
   validates :length, presence: true
