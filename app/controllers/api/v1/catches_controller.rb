@@ -1,15 +1,15 @@
-class Api::V1::FishController < ApplicationController
+class Api::V1::CatchesController < ApplicationController
   before_action :set_user
   before_action :set_fish, only: [:update, :show]
 
   rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
 
   def index
-    render json: FishSerializer.new(@user.fish), status: 200
+    render json: CatchSerializer.new(@user.fish), status: 200
   end
 
   def show
-    render json: FishSerializer.new(@fish), status: 200
+    render json: CatchSerializer.new(@fish), status: 200
   end
 
   def create
@@ -43,12 +43,12 @@ class Api::V1::FishController < ApplicationController
     @user = User.find(params[:user_id])
   end
 
-  def set_fish
-    @fish = @user.fish.find(params[:id])
+  def set_catch
+    @catch = @user.catches.find(params[:id])
   end
 
-  def fish_params
-    params.require(:fish).permit(:species, :weight, :length)
+  def catch_params
+    params.require(:catch).permit(:species, :weight, :length)
   end
 
   def record_not_found(error)
