@@ -13,10 +13,10 @@ class Api::V1::CatchesController < ApplicationController
   end
 
   def create
-    @fish = @user.fish.build(fish_params)
+    @catch = @user.catches.build(catch_params)
     begin
-      @fish.save!
-      render json: FishSerializer.new(@fish), status: 201
+      @catch.save!
+      render json: CatchSerializer.new(@catch), status: 201
     rescue ActiveRecord::RecordInvalid => e
       render json: { error: e.message }, status: 422
     end
@@ -24,17 +24,17 @@ class Api::V1::CatchesController < ApplicationController
 
   def update
     begin
-      @fish.update!(fish_params)
-      render json: FishSerializer.new(@fish), status: 200
+      @catch.update!(catch_params)
+      render json: CatchSerializer.new(@catch), status: 200
     rescue ActiveRecord::RecordInvalid => e
       render json: { error: e.message }, status: 422
     end
   end
 
   def destroy
-    @fish = @user.fish.find(params[:id])
-      @fish.destroy
-      render json: { message: "Fish successfully deleted" }, status: 200
+    @catch = @user.catches.find(params[:id])
+      @catch.destroy
+      render json: { message: "Catch successfully deleted" }, status: 200
   end
 
   private 
@@ -48,7 +48,7 @@ class Api::V1::CatchesController < ApplicationController
   end
 
   def catch_params
-    params.require(:catch).permit(:species, :weight, :length)
+    params.require(:catch).permit(:species, :weight, :length, :spot_name, :latitude, :longitude, :lure, :photo_url)
   end
 
   def record_not_found(error)
