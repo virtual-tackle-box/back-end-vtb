@@ -8,5 +8,4 @@ class Catch < ApplicationRecord
   validates :latitude, presence: true
   validates :longitude, presence: true
   validates :lure, presence: true
-  validates :photo_url, presence: true
 end

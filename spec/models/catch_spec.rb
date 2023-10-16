@@ -14,6 +14,5 @@ RSpec.describe Catch, type: :model do
     it { should validate_presence_of :latitude }
     it { should validate_presence_of :longitude }
     it { should validate_presence_of :lure }
-    it { should validate_presence_of :photo_url }
   end
 end
