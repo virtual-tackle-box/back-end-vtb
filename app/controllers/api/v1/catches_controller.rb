@@ -1,15 +1,15 @@
 class Api::V1::CatchesController < ApplicationController
   before_action :set_user
-  before_action :set_fish, only: [:update, :show]
+  before_action :set_catch, only: [:update, :show]
 
   rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
 
   def index
-    render json: CatchSerializer.new(@user.fish), status: 200
+    render json: CatchSerializer.new(@user.catches), status: 200
   end
 
   def show
-    render json: CatchSerializer.new(@fish), status: 200
+    render json: CatchSerializer.new(@catch), status: 200
   end
 
   def create
