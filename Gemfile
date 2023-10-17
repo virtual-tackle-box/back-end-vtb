@@ -58,3 +58,5 @@ group :test do
   gem "webmock"
   gem "vcr"
 end
+
+gem "aws-sdk-s3", "~> 1.136"
