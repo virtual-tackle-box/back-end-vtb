@@ -12,8 +12,7 @@ RSpec.describe "Catches Index", type: :request do
         spot_name: "Lake A",
         latitude: 40.7128,
         longitude: -74.0060,
-        lure: "Spinnerbait",
-        photo_url: "https://example.com/photo1.jpg"
+        lure: "Spinnerbait"
       )
     
     catch_2 = user.catches.create(
@@ -23,8 +22,7 @@ RSpec.describe "Catches Index", type: :request do
       spot_name: "Lake B",
       latitude: 41.8781,
       longitude: -87.6298,
-      lure: "Crankbait",
-      photo_url: "https://example.com/photo2.jpg"
+      lure: "Crankbait"
     )
     
     catch_3 = user.catches.create(
@@ -34,8 +32,7 @@ RSpec.describe "Catches Index", type: :request do
       spot_name: "Lake C",
       latitude: 34.0522,
       longitude: -118.2437,
-      lure: "Jerkbait",
-      photo_url: "https://example.com/photo3.jpg"
+      lure: "Jerkbait"
     )
       
       headers = { "CONTENT_TYPE" => "application/json" }
@@ -71,8 +68,6 @@ RSpec.describe "Catches Index", type: :request do
       expect(catches_data[:data][0][:attributes][:longitude]).to be_a(Float)
       expect(catches_data[:data][0][:attributes]).to have_key(:lure)
       expect(catches_data[:data][0][:attributes][:lure]).to be_a(String)
-      expect(catches_data[:data][0][:attributes]).to have_key(:photo_url)
-      expect(catches_data[:data][0][:attributes][:photo_url]).to be_a(String)
     end
 
     it "cant get catches for a user that doesnt exist" do
@@ -99,8 +94,7 @@ RSpec.describe "Catches Index", type: :request do
         spot_name: "Lake A",
         latitude: 40.7128,
         longitude: -74.0060,
-        lure: "Spinnerbait",
-        photo_url: "https://example.com/photo1.jpg"
+        lure: "Spinnerbait"
       )
     
     catch_2 = user.catches.create(
@@ -110,8 +104,7 @@ RSpec.describe "Catches Index", type: :request do
       spot_name: "Lake B",
       latitude: 41.8781,
       longitude: -87.6298,
-      lure: "Crankbait",
-      photo_url: "https://example.com/photo2.jpg"
+      lure: "Crankbait"
     )
     
     catch_3 = user.catches.create(
@@ -121,8 +114,7 @@ RSpec.describe "Catches Index", type: :request do
       spot_name: "Lake C",
       latitude: 34.0522,
       longitude: -118.2437,
-      lure: "Jerkbait",
-      photo_url: "https://example.com/photo3.jpg"
+      lure: "Jerkbait"
     )
       
       headers = { "CONTENT_TYPE" => "application/json" }
@@ -141,7 +133,7 @@ RSpec.describe "Catches Index", type: :request do
       expect(catch_data[:data][:type]).to be_a(String)
       expect(catch_data[:data]).to have_key(:attributes)
       expect(catch_data[:data][:attributes]).to be_a(Hash)
-      expect(catch_data[:data][:attributes].keys).to eq([:species, :weight, :length, :spot_name, :latitude, :longitude, :lure, :photo_url])
+      expect(catch_data[:data][:attributes].keys).to eq([:species, :weight, :length, :spot_name, :latitude, :longitude, :lure, :catch_images])
       expect(catch_data[:data][:attributes][:species]).to be_a(String)
       expect(catch_data[:data][:attributes][:weight]).to be_a(Float)
       expect(catch_data[:data][:attributes][:length]).to be_a(Float)
@@ -149,7 +141,6 @@ RSpec.describe "Catches Index", type: :request do
       expect(catch_data[:data][:attributes][:latitude]).to be_a(Float)
       expect(catch_data[:data][:attributes][:longitude]).to be_a(Float)
       expect(catch_data[:data][:attributes][:lure]).to be_a(String)
-      expect(catch_data[:data][:attributes][:photo_url]).to be_a(String)
     end
 
     it "cant get single catch for user that does not exist" do

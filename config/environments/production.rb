@@ -1,5 +1,6 @@
 require "active_support/core_ext/integer/time"
-
+# Rails.application.routes.default_url_options[:host] = 'localhost:3000'
+# This will allow us to actually generate a URL to the images we store on Amazon S3. If you plan to deploy, you’ll need this same line inside your production.rb file; just replace 'localhost:3000' with your live domain name.
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 

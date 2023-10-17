@@ -48,7 +48,7 @@ class Api::V1::CatchesController < ApplicationController
   end
 
   def catch_params
-    params.require(:catch).permit(:species, :weight, :length, :spot_name, :latitude, :longitude, :lure, :photo_url)
+    params.require(:catch).permit(:species, :weight, :length, :spot_name, :latitude, :longitude, :lure)
   end
 
   def record_not_found(error)
