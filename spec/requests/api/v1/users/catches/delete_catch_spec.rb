@@ -11,8 +11,7 @@ RSpec.describe "Catch", type: :request do
         spot_name: "Lake A",
         latitude: 40.7128,
         longitude: -74.0060,
-        lure: "Spinnerbait",
-        photo_url: "https://example.com/photo.jpg"
+        lure: "Spinnerbait"
       )
 
       headers = { "CONTENT_TYPE" => "application/json" }

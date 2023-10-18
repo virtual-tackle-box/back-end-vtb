@@ -13,8 +13,7 @@ RSpec.describe "Catches", type: :request do
           "spot_name": "Lake D",
           "latitude": 38.9072,
           "longitude": -77.0370,
-          "lure": "Topwater",
-          "photo_url": "https://example.com/photo4.jpg"
+          "lure": "Topwater"
         }
       }
 
@@ -32,7 +31,7 @@ RSpec.describe "Catches", type: :request do
       expect(catch_data[:data].keys).to eq([:id, :type, :attributes])
       expect(catch_data[:data][:id]).to eq(new_catch.id.to_s)
       expect(catch_data[:data][:type]).to be_a(String)
-      expect(catch_data[:data][:attributes].keys).to eq([:species, :weight, :length, :spot_name, :latitude, :longitude, :lure, :photo_url])
+      expect(catch_data[:data][:attributes].keys).to eq([:species, :weight, :length, :spot_name, :latitude, :longitude, :lure, :catch_images])
       expect(catch_data[:data][:attributes][:species]).to eq(new_catch.species)
       expect(catch_data[:data][:attributes][:weight]).to eq(new_catch.weight)
       expect(catch_data[:data][:attributes][:length]).to eq(new_catch.length)
@@ -40,7 +39,7 @@ RSpec.describe "Catches", type: :request do
       expect(catch_data[:data][:attributes][:latitude]).to eq(new_catch.latitude)
       expect(catch_data[:data][:attributes][:longitude]).to eq(new_catch.longitude)
       expect(catch_data[:data][:attributes][:lure]).to eq(new_catch.lure)
-      expect(catch_data[:data][:attributes][:photo_url]).to eq(new_catch.photo_url)
+
     end
 
     it "can't create a catch with invalid params" do
@@ -54,8 +53,7 @@ RSpec.describe "Catches", type: :request do
           "spot_name": "Lake D",
           "latitude": 38.9072,
           "longitude": -77.0370,
-          "lure": "Topwater",
-          "photo_url": "https://example.com/photo4.jpg"
+          "lure": "Topwater"
         }
       }
 
