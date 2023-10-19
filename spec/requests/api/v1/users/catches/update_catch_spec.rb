@@ -84,7 +84,7 @@ RSpec.describe "Catch", type: :request do
 
       expect(error_data).to be_a(Hash)
       expect(error_data).to have_key(:error)
-      expect(error_data[:error]).to eq("Validation failed: Species can't be blank")
+      expect(error_data[:error]).to eq("Validation failed: Species can't be blank, Length can't be blank")
     end
   end
 end
