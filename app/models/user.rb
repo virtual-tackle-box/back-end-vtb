@@ -4,6 +4,15 @@ class User < ApplicationRecord
   
   validates :email, presence: true, uniqueness: true
   validates :password_digest, presence: true
+  validates :phone_number, format: { with: /\A\+\d+\z/, message: "should be in the format '+123456789'" }, allow_nil: true
 
   has_secure_password
+
+  after_create :send_welcome_message
+
+  private
+
+  def send_welcome_message
+    TwilioService.new.send_welcome_message(self) if phone_number.present?
+  end
 end
