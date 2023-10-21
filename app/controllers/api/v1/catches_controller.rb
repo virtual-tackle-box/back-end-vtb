@@ -5,7 +5,7 @@ class Api::V1::CatchesController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
 
   def index
-    catches = @user.catches.with_attached_catch_images
+    catches = @user.catches.all
     render json: CatchSerializer.new(catches), status: 200
   end
 

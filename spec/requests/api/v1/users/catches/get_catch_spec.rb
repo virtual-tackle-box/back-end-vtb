@@ -133,7 +133,7 @@ RSpec.describe "Catches Index", type: :request do
       expect(catch_data[:data][:type]).to be_a(String)
       expect(catch_data[:data]).to have_key(:attributes)
       expect(catch_data[:data][:attributes]).to be_a(Hash)
-      expect(catch_data[:data][:attributes].keys).to eq([:species, :weight, :length, :spot_name, :latitude, :longitude, :lure, :catch_images])
+      expect(catch_data[:data][:attributes].keys).to eq([:species, :weight, :length, :spot_name, :latitude, :longitude, :lure])
       expect(catch_data[:data][:attributes][:species]).to be_a(String)
       expect(catch_data[:data][:attributes][:weight]).to be_a(Float)
       expect(catch_data[:data][:attributes][:length]).to be_a(Float)
