@@ -82,6 +82,5 @@ test:
 production:
   <<: *default
   database: virtual_tackle_box_production
-  # username: virtual_tackle_box
-  # password: <%= ENV["VIRTUAL_TACKLE_BOX_DATABASE_PASSWORD"] %>
-  # url: 
+  username: virtual_tackle_box
+  password: <%= ENV["VIRTUAL_TACKLE_BOX_DATABASE_PASSWORD"] %>
