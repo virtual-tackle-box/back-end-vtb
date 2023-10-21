@@ -5,7 +5,7 @@ class Api::V1::CatchesController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
 
   def index
-    catches = @user.catches.with_attached_catch_images
+    catches = @user.catches.all
     render json: CatchSerializer.new(catches), status: 200
   end
 
@@ -15,6 +15,7 @@ class Api::V1::CatchesController < ApplicationController
 
   def create
     @catch = @user.catches.build(catch_params)
+    @catch.cloudinary_urls = params[:cloudinary_urls] if params[:cloudinary_urls]
     begin
       @catch.save!
       render json: CatchSerializer.new(@catch), status: 201
@@ -24,8 +25,8 @@ class Api::V1::CatchesController < ApplicationController
   end
 
   def update
-    if params[:photos_to_delete]
-      purge_photos(params[:photos_to_delete])
+    if params[:cloudinary_urls]
+      @catch.cloudinary_urls = params[:cloudinary_urls]
     end
     if @catch.update(catch_params)
       render json: CatchSerializer.new(@catch), status: 200
@@ -50,7 +51,7 @@ class Api::V1::CatchesController < ApplicationController
   end
 
   def catch_params
-    params.require(:catch).permit(:species, :weight, :length, :spot_name, :latitude, :longitude, :lure)
+    params.require(:catch).permit(:species, :weight, :length, :spot_name, :latitude, :longitude, :lure, cloudinary_urls: [])
   end
 
   def purge_photos(ids_to_delete)
