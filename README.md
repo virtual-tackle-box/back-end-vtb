@@ -5,6 +5,12 @@
 ![All Contributors](https://img.shields.io/badge/contributors-2-orange.svg?style=flat)
 ![CircleCI Build Status](https://img.shields.io/circleci/build/github/virtual-tackle-box/back-end-vtb)
 
+# <p align="center"> Virtual Tackle Box </p>
+
+Looking to improve your fishing experience? Check out Virtual Tackle Box. Our app is designed with a React-Native front end and a Rails API back end to give you a seamless user experience.
+
+Need to save the locations of your go-to fishing spots? We have a mapping feature for that. Want to document your catches? You can easily upload photos directly in the app. Keep track of your most effective lures with our digital log, so you always know what gear to use. Virtual Tackle Box transforms your fishing activities into a well-documented digital history, giving you valuable insights for future trips. Give it a try and elevate your next fishing outing.
+
 ## Status Codes
 
 Virtual Tackle Box returns the following status codes in its API:
