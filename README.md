@@ -11,6 +11,48 @@ Looking to improve your fishing experience? Check out Virtual Tackle Box. Our ap
 
 Need to save the locations of your go-to fishing spots? We have a mapping feature for that. Want to document your catches? You can easily upload photos directly in the app. Keep track of your most effective lures with our digital log, so you always know what gear to use. Virtual Tackle Box transforms your fishing activities into a well-documented digital history, giving you valuable insights for future trips. Give it a try and elevate your next fishing outing.
 
+## RESTful Endpoints
+
+<details close>
+
+### Create a User
+
+
+```http
+POST /api/v1/users
+```
+
+### Get all Lures for a User
+
+```http
+GET /api/v1/users/:id/lures
+```
+
+### Get a Single Lure for a User
+
+```http
+GET /api/v1/users/:id/lures/:id
+```
+
+### Create a User's Lure
+
+```http
+POST /api/v1/users/:id/lures
+```
+
+### Update a User's Lure
+
+```http
+PATCH /api/v1/users/:id/lures/:id 
+```
+
+### Delete a User's Lure
+
+```http
+DELETE /api/v1/users/:id/lures/:id 
+```
+</details>
+
 ## Status Codes
 
 Virtual Tackle Box returns the following status codes in its API:
