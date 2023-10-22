@@ -40,7 +40,7 @@ RSpec.describe "Catch", type: :request do
       expect(catch_data[:data].keys).to eq([:id, :type, :attributes])
       expect(catch_data[:data][:id]).to eq(updated_catch.id.to_s)
       expect(catch_data[:data][:type]).to be_a(String)
-      expect(catch_data[:data][:attributes].keys).to eq([:species, :weight, :length, :spot_name, :latitude, :longitude, :lure])
+      expect(catch_data[:data][:attributes].keys).to eq([:species, :weight, :length, :spot_name, :latitude, :longitude, :lure, :cloudinary_urls])
       expect(catch_data[:data][:attributes][:species]).to eq(updated_catch.species)
       expect(catch_data[:data][:attributes][:weight]).to eq(updated_catch.weight)
       expect(catch_data[:data][:attributes][:length]).to eq(updated_catch.length)
