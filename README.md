@@ -41,7 +41,7 @@ Running this project requires:
 ## Contributors
 
 <b>Wil Fady</b> <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; GitHub: <a href="https://github.com/fadwil">@fadwil</a> <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; GitHub: <a href="https://github.com/fadwil">fadwil</a> <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; LinkedIn: <a href="https://www.linkedin.com/in/wilfady/">wilfady</a> <br>
 
 <b>Daniel Gallagher</b> <br>
