@@ -2,7 +2,7 @@
 ![PRs Closed](https://img.shields.io/github/issues-pr-closed/virtual-tackle-box/back-end-vtb)
 ![RSpec Version](https://img.shields.io/gem/v/rspec?color=blue&label=rspec)
 ![Simplecov Version](https://img.shields.io/gem/v/simplecov?color=blue&label=simplecov)
-![All Contributors](https://img.shields.io/badge/contributors-1-orange.svg?style=flat)
+![All Contributors](https://img.shields.io/badge/contributors-2-orange.svg?style=flat)
 
 
 
