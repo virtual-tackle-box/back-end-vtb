@@ -532,6 +532,78 @@ Example Value:
 
 ```
 </details>
+
+### Update a User's Catch
+
+```http
+PATCH /api/v1/users/:id/catches/:id 
+```
+<details close>
+<summary>  Details </summary>
+<br>
+
+Parameters: <br>
+```
+CONTENT_TYPE=application/json
+```
+
+| Code | Description |
+| :--- | :--- |
+| 200 | `OK` |
+
+Example Value:
+
+```json
+{
+    "data": {
+        "id": "96",
+        "type": "catch",
+        "attributes": {
+           "species": "Pike",
+        "weight": 10.25,
+        "length": 19.75,
+        "spot_name": "Grand Lake",
+        "latitude": 40.13492267254828,
+        "longitude": -105.82657490637892,
+        "lure": "Spinner Bait",
+        "cloudinary_urls": [
+          "http://res.cloudinary.com/dw48ifzg4/image/upload/v1698039379/dxzndw9rfkux0ishy8yc.jpg"
+          ]  
+        }
+    }
+}
+
+```
+
+</details>
+
+---
+
+### Delete a User's Catch
+
+```http
+DELETE /api/v1/users/:id/catch/:id 
+```
+<details close>
+<summary>  Details </summary>
+<br>
+
+Parameters: <br>
+```
+CONTENT_TYPE=application/json
+```
+
+| Code | Description |
+| :--- | :--- |
+| 204 | No Content |
+
+Example Value:
+
+```json
+""
+```
+
+</details>
 </details>
 
 ## Status Codes
