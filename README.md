@@ -168,7 +168,7 @@ Example Value:
 {
     "data": {
         "id": "1",
-        "type": "user",
+        "type": "lure",
         "attributes": {
            "brand": "Rapala",
           "variety": "Plastic",
