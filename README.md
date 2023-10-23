@@ -20,7 +20,28 @@ Need to save the locations of your go-to fishing spots? We have a mapping featur
 
 ```http
 POST /api/v1/users
+{ 
+    "user": {
+  "email": "dg867@gmail.com",
+  "password": "great_password",
+  "password_confirmation": "great_password"
+    }
+}
 ```
+<details close>
+<summary>  Details </summary>
+<br>
+
+  Parameters: <br>
+```
+CONTENT_TYPE=application/json
+```
+
+| Code | Description |
+| :--- | :--- |
+| 201 | Created |
+
+Example Value:
 
 ### Get all Lures for a User
 
@@ -52,6 +73,50 @@ PATCH /api/v1/users/:id/lures/:id
 DELETE /api/v1/users/:id/lures/:id 
 ```
 </details>
+
+
+###Post Catch
+<details close>
+<summary>  Details </summary>
+<br>
+
+  Parameters: <br>
+```
+CONTENT_TYPE=application/json
+```
+
+| Code | Description |
+| :--- | :--- |
+| 201 | Created |
+
+Example Value:
+```json
+{
+  "data": {
+    "id": "1",
+    "type": "user",
+    "attributes": {
+      "email": "test@example.com",
+      "catches": [
+        {
+          "id": 1,
+          "species": "Largemouth Bass",
+          "weight": 8,
+          "length": 13,
+          "user_id": 1,
+          "created_at": "2023-10-22T03:03:10.425Z",
+          "updated_at": "2023-10-22T03:03:10.425Z",
+          "spot_name": "Josh’s Spot",
+          "latitude": 46.805844423621096,
+          "longitude": -95.84727562996598,
+          "lure": "Frog",
+          "cloudinary_urls": [
+          "http://res.cloudinary.com/dw48ifzg4/image/upload/v1697943780/ub8iosvp5tog05zfc0t0.jpg"
+          ]
+        }
+    }
+}
+```
 
 ## Status Codes
 
