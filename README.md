@@ -20,14 +20,8 @@ Need to save the locations of your go-to fishing spots? We have a mapping featur
 
 ```http
 POST /api/v1/users
-{ 
-    "user": {
-  "email": "dg867@gmail.com",
-  "password": "great_password",
-  "password_confirmation": "great_password"
-    }
-}
 ```
+
 <details close>
 <summary>  Details </summary>
 <br>
@@ -43,36 +37,75 @@ CONTENT_TYPE=application/json
 
 Example Value:
 
+</details>
+
+---
+
 ### Get all Lures for a User
 
 ```http
 GET /api/v1/users/:id/lures
 ```
+<details close>
+<summary>  Details </summary>
+<br>
+
+
+</details>
+
+---
 
 ### Get a Single Lure for a User
 
 ```http
 GET /api/v1/users/:id/lures/:id
 ```
+<details close>
+<summary>  Details </summary>
+<br>
+    
+</details>
+
+---
 
 ### Create a User's Lure
 
 ```http
 POST /api/v1/users/:id/lures
 ```
+<details close>
+<summary>  Details </summary>
+<br>
+    
+</details>
+
+---
 
 ### Update a User's Lure
 
 ```http
 PATCH /api/v1/users/:id/lures/:id 
 ```
+<details close>
+<summary>  Details </summary>
+<br>
+
+</details>
+
+---
 
 ### Delete a User's Lure
 
 ```http
 DELETE /api/v1/users/:id/lures/:id 
 ```
+<details close>
+<summary>  Details </summary>
+<br>
 
+</details>
+
+---
 
 ###Create a Catch
 
@@ -121,6 +154,10 @@ Example Value:
     }
 }
 ```
+
+</details>
+
+---
 
 ## Status Codes
 
