@@ -49,7 +49,36 @@ GET /api/v1/users/:id/lures
 <details close>
 <summary>  Details </summary>
 <br>
+  
+Parameters: <br>
+```
+No Parameters
+```
 
+| Code | Description |
+| :--- | :--- |
+| 200 | `OK` |
+
+Example Value:
+
+```json
+    {
+      "data": [
+        {
+          "id": "1",
+          "type": "user",
+          "attributes": {
+          "email": "test2@example.com",
+          "catches": [],
+          "lures": [],
+          "phone_number": "+17272787155"
+        },
+        "relationships": {}
+      }
+    }
+  ]
+}
+```
 
 </details>
 
@@ -102,6 +131,21 @@ DELETE /api/v1/users/:id/lures/:id
 <details close>
 <summary>  Details </summary>
 <br>
+
+Parameters: <br>
+```
+CONTENT_TYPE=application/json
+```
+
+| Code | Description |
+| :--- | :--- |
+| 204 | No Content |
+
+Example Value:
+
+```json
+""
+```
 
 </details>
 
