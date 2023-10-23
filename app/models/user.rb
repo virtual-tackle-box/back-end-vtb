@@ -13,6 +13,9 @@ class User < ApplicationRecord
   private
 
   def send_welcome_message
-    TwilioService.new.send_welcome_message(self) if phone_number.present?
+    if phone_number.present?
+      TwilioService.new.send_welcome_message(self)
+      TwilioSenderJob.perform_async(self.id)
+    end
   end
 end
