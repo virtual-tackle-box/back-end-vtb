@@ -62,18 +62,25 @@ No Parameters
 Example Value:
 
 ```json
+{
+  "data": [
     {
-      "data": [
-        {
-          "id": "1",
-          "type": "user",
-          "attributes": {
-          "email": "test2@example.com",
-          "catches": [],
-          "lures": [],
-          "phone_number": "+17272787155"
-        },
-        "relationships": {}
+        "id": "1",
+        "type": "lure",
+        "attributes": {
+          "brand": "Oscar Mayer",
+          "variety": "Beef",
+          "color": "Red/Brown",
+          "weight": 0.125
+      },
+      {
+        "id": "2",
+        "type": "lure",
+        "attributes": {
+          "brand": "Nature Made",
+          "variety": "Bread",
+          "color": "Light Brown",
+          "weight": 0.015
       }
     }
   ]
@@ -92,6 +99,33 @@ GET /api/v1/users/:id/lures/:id
 <details close>
 <summary>  Details </summary>
 <br>
+
+Parameters: <br>
+```
+CONTENT_TYPE=application/json
+```
+
+| Code | Description |
+| :--- | :--- |
+| 200 | `OK` |
+
+Example Value:
+
+```json
+{
+    "data": {
+        "id": "1",
+        "type": "user",
+        "attributes": {
+           "brand": "Rapala",
+          "variety": "Plastic",
+          "color": "Red/White",
+          "weight": 0.125
+        }
+    }
+}
+
+```
     
 </details>
 
@@ -118,6 +152,33 @@ PATCH /api/v1/users/:id/lures/:id
 <details close>
 <summary>  Details </summary>
 <br>
+
+Parameters: <br>
+```
+CONTENT_TYPE=application/json
+```
+
+| Code | Description |
+| :--- | :--- |
+| 200 | `OK` |
+
+Example Value:
+
+```json
+{
+    "data": {
+        "id": "1",
+        "type": "user",
+        "attributes": {
+           "brand": "Rapala",
+          "variety": "Plastic",
+          "color": "Red/White",
+          "weight": 0.125
+        }
+    }
+}
+
+```
 
 </details>
 
