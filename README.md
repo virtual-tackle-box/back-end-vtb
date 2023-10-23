@@ -40,17 +40,19 @@ Example Value:
 {
   "data": [
     {
-    "id": "3",
-    "type": "user",
-    "attributes": {
-      "email": "DG@example.com",
-      "catches": [],
-      "lures": [],
-      "phone_number": "+12725551209"
+      "id": "3",
+      "type": "user",
+      "attributes": {
+        "email": "DG@example.com",
+        "catches": [],
+        "lures": [],
+        "phone_number": "+12725551209"
       },
-    "relationships": {}
+      "relationships": {}
+    }
   ]
 }
+
 ```
 
 </details>
@@ -183,26 +185,28 @@ Example Value:
 {
   "data": [
     {
-        "id": "1",
-        "type": "lure",
-        "attributes": {
-          "brand": "Oscar Mayer",
-          "variety": "Beef",
-          "color": "Red/Brown",
-          "weight": 0.125
-      },
-      {
-        "id": "2",
-        "type": "lure",
-        "attributes": {
-          "brand": "Nature Made",
-          "variety": "Bread",
-          "color": "Light Brown",
-          "weight": 0.015
+      "id": "1",
+      "type": "lure",
+      "attributes": {
+        "brand": "Oscar Mayer",
+        "variety": "Beef",
+        "color": "Red/Brown",
+        "weight": 0.125
+      }
+    },
+    {
+      "id": "2",
+      "type": "lure",
+      "attributes": {
+        "brand": "Nature Made",
+        "variety": "Bread",
+        "color": "Light Brown",
+        "weight": 0.015
       }
     }
   ]
 }
+
 ```
 
 </details>
