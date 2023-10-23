@@ -4,10 +4,12 @@ class Api::V1::UsersController < ApplicationController
     
     begin 
       @user.save!
-      TwilioSenderJob.perform_async(@user.id)
       render json: UserSerializer.new(@user), status: 201
     rescue ActiveRecord::RecordInvalid => e 
       render json: { error: e.message }, status: 422 
+    rescue => e
+      # Catch other exceptions
+      render json: { error: "Unexpected error: #{e.message}" }, status: 500
     end
   end
 
