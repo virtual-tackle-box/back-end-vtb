@@ -172,30 +172,29 @@ CONTENT_TYPE=application/json
 
 Example Value:
 ```json
-{
-  "data": {
-    "id": "1",
-    "type": "user",
-    "attributes": {
-      "email": "test@example.com",
-      "catches": [
-        {
-          "id": 1,
-          "species": "Largemouth Bass",
-          "weight": 8,
-          "length": 13,
-          "user_id": 1,
-          "created_at": "2023-10-22T03:03:10.425Z",
-          "updated_at": "2023-10-22T03:03:10.425Z",
-          "spot_name": "Josh’s Spot",
-          "latitude": 46.805844423621096,
-          "longitude": -95.84727562996598,
-          "lure": "Frog",
-          "cloudinary_urls": [
-          "http://res.cloudinary.com/dw48ifzg4/image/upload/v1697943780/ub8iosvp5tog05zfc0t0.jpg"
-          ]
-        }
+  {
+    "data": [
+   {
+      "id": "1",
+      "type": "catch",
+      "attributes": {
+            "id": 1,
+            "species": "Largemouth Bass",
+            "weight": 8,
+            "length": 13,
+            "user_id": 1,
+            "created_at": "2023-10-22T03:03:10.425Z",
+            "updated_at": "2023-10-22T03:03:10.425Z",
+            "spot_name": "Josh’s Spot",
+            "latitude": 46.805844423621096,
+            "longitude": -95.84727562996598,
+            "lure": "Frog",
+            "cloudinary_urls": [
+            "http://res.cloudinary.com/dw48ifzg4/image/upload/v1697943780/ub8iosvp5tog05zfc0t0.jpg"
+            ]
+      }
     }
+  ]
 }
 ```
 
