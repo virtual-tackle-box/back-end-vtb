@@ -17,7 +17,6 @@ Need to save the locations of your go-to fishing spots? We have a mapping featur
 
 ### Create a User
 
-
 ```http
 POST /api/v1/users
 ```
@@ -37,6 +36,125 @@ CONTENT_TYPE=application/json
 
 Example Value:
 
+```json
+{
+  "data": [
+    {
+    "id": "3",
+    "type": "user",
+    "attributes": {
+      "email": "DG@example.com",
+      "catches": [],
+      "lures": [],
+      "phone_number": "+12725551209"
+      },
+    "relationships": {}
+  ]
+}
+```
+
+</details>
+
+---
+
+### Get a single User
+
+```http
+GET /api/v1/users/:id
+```
+<details close>
+<summary>  Details </summary>
+<br>
+
+Parameters: <br>
+```
+CONTENT_TYPE=application/json
+```
+
+| Code | Description |
+| :--- | :--- |
+| 200 | `OK` |
+
+Example Value:
+
+```json
+{
+  "data": {
+      "id": "3",
+      "type": "user",
+      "attributes": {
+      "email": "DG@example.com",
+      "catches": [
+        {
+          "id": 82,
+          "species": "A",
+          "weight": 0,
+          "length": 0,
+          "user_id": 3,
+          "created_at": "2023-10-23T00:34:31.648Z",
+          "updated_at": "2023-10-23T00:34:31.648Z",
+          "spot_name": "A",
+          "latitude": 39.668815822843385,
+          "longitude": -104.85452662895823,
+          "lure": "",
+          "cloudinary_urls": []
+          },
+          {
+          "id": 91,
+          "species": "A",
+          "weight": 0,
+          "length": 0,
+          "user_id": 3,
+          "created_at": "2023-10-23T01:15:07.958Z",
+          "updated_at": "2023-10-23T01:15:07.958Z",
+          "spot_name": "A",
+          "latitude": 39.66744368599523,
+          "longitude": -104.85458946523866,
+          "lure": "",
+          "cloudinary_urls": []
+          }
+        ],
+        "lures": [
+          {
+            "id": 13,
+            "brand": "Oscar Mayer",
+            "variety": "Beef",
+            "color": "Red/Brown",
+            "weight": 0.125,
+            "user_id": 3,
+            "created_at": "2023-10-21T20:09:17.230Z",
+            "updated_at": "2023-10-21T20:09:17.230Z"
+          }
+        ],
+        "phone_number": "+12725551529"
+    },
+    "relationships": {
+      "lures": {
+        "data": [
+          {
+              "id": "13",
+              "type": "lure"
+          }
+       ]
+    },
+    "catches": {
+       "data": [
+          {
+            "id": "82",
+            "type": "catch"
+          },
+          {
+            "id": "91",
+            "type": "catch"
+          }
+        ]
+      }
+    }
+  }
+}
+
+```
+    
 </details>
 
 ---
@@ -139,6 +257,34 @@ POST /api/v1/users/:id/lures
 <details close>
 <summary>  Details </summary>
 <br>
+
+Parameters: <br>
+```
+CONTENT_TYPE=application/json
+```
+
+| Code | Description |
+| :--- | :--- |
+| 201 | Created |
+
+Example Value:
+
+```json
+{
+  "data": [
+    {
+      "id": "13",
+      "type": "lure",
+      "attributes": {
+        "brand": "Rapala",
+        "variety": "Plug",
+        "color": "Green/Orange",
+        "weight": 0.210
+      }
+    }
+  ]
+}
+```
     
 </details>
 
