@@ -72,10 +72,14 @@ PATCH /api/v1/users/:id/lures/:id
 ```http
 DELETE /api/v1/users/:id/lures/:id 
 ```
-</details>
 
 
-###Post Catch
+###Create a Catch
+
+```http
+POST /api/v1/users/:id/catches 
+```
+
 <details close>
 <summary>  Details </summary>
 <br>
