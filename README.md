@@ -410,8 +410,128 @@ Example Value:
 ```
 
 </details>
+
+---
+
+### Get a Single Catch for a User
+
+```http
+GET /api/v1/users/:id/catches/:id
+```
+<details close>
+<summary>  Details </summary>
+<br>
+
+Parameters: <br>
+```
+CONTENT_TYPE=application/json
+```
+
+| Code | Description |
+| :--- | :--- |
+| 200 | `OK` |
+
+Example Value:
+
+```json
+{
+    "data": {
+        "id": "93",
+        "type": "catch",
+        "attributes": {
+           "species": "Large Mouth Bass",
+          "weight": 8.75,
+          "length": 16.3,
+          "latitude": 40.14204615885409,
+          "longitude": -105.81135899995948,
+          "lure": "Spinner",
+          "cloudinary_urls": [
+            "http://res.cloudinary.com/dw48ifzg4/image/upload/v1698038953/dortarhdn6c5l8zjsr4k.jpg"
+            ]
+        }
+    }
+}
+
+```
+    
 </details>
 
+### Get all Catches for a User
+
+```http
+GET /api/v1/users/:id/catches
+```
+<details close>
+<summary>  Details </summary>
+<br>
+
+Parameters: <br>
+```
+CONTENT_TYPE=application/json
+```
+
+| Code | Description |
+| :--- | :--- |
+| 200 | `OK` |
+
+Example Value:
+
+```json
+{
+    "data": [
+      {
+        "id": "93",
+        "type": "catch",
+        "attributes": {
+           "species": "Large Mouth Bass",
+          "weight": 8.75,
+          "length": 16.3,
+          "spot_name": "Grand Lake",
+          "latitude": 40.14204615885409,
+          "longitude": -105.81135899995948,
+          "lure": "Spinner",
+          "cloudinary_urls": [
+            "http://res.cloudinary.com/dw48ifzg4/image/upload/v1698038953/dortarhdn6c5l8zjsr4k.jpg"
+            ]
+        }
+    },
+    {
+      "id": "94",
+      "type": "catch",
+      "attributes": {
+         "species": "Pike",
+        "weight": 8.75,
+        "length": 16.3,
+        "spot_name": "Grand Lake",
+        "latitude": 40.13561588705203,
+        "longitude": -105.83955335970793,
+        "lure": "Plug",
+        "cloudinary_urls": [
+          "http://res.cloudinary.com/dw48ifzg4/image/upload/v1698039143/soxc2n9bweksefjns6nt.jpg"
+          ]
+      }
+  },
+  {
+      "id": "96",
+      "type": "catch",
+      "attributes": {
+         "species": "Pike",
+        "weight": 9.25,
+        "length": 18.5,
+        "spot_name": "Grand Lake",
+        "latitude": 40.13492267254828,
+        "longitude": -105.82657490637892,
+        "lure": "Crank Bait",
+        "cloudinary_urls": [
+          "http://res.cloudinary.com/dw48ifzg4/image/upload/v1698039379/dxzndw9rfkux0ishy8yc.jpg"
+          ]
+       }
+    }  
+  ]
+}
+
+```
+</details>
 ---
 
 ## Status Codes
