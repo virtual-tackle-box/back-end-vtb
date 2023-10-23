@@ -212,7 +212,7 @@ Example Value:
 
 ---
 
-###Create a Catch
+### Create a Catch
 
 ```http
 POST /api/v1/users/:id/catches 
@@ -259,6 +259,7 @@ Example Value:
 }
 ```
 
+</details>
 </details>
 
 ---
